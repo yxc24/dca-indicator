@@ -1,0 +1,120 @@
+# DCA Indicator 规则配置
+# 修改此文件无需改代码，重启即生效
+
+# ─────────────────────────────────────────
+# 监测标的
+# ─────────────────────────────────────────
+targets:
+  - ticker: SPY
+    name: "标普 500 ETF"
+  # 如需添加，格式参考上面。例如：
+  # - ticker: QQQ
+  #   name: "纳斯达克 100 ETF"
+  # - ticker: VOO
+  #   name: "Vanguard S&P 500"
+
+# ─────────────────────────────────────────
+# 指标定义
+# ─────────────────────────────────────────
+indicators:
+  # 全局指标（与 target 无关，所有标的共享一次计算结果）
+  - id: vix
+    scope: global
+    source: vix_composite          # yfinance 主 + FRED 备
+    trigger: "value > 25"
+    weight: 2
+    description: "VIX 恐慌指数 > 25"
+
+  - id: fgi
+    scope: global
+    source: cnn_fgi
+    trigger: "value < 25"
+    weight: 1
+    description: "CNN Fear & Greed < 25 (极度恐惧)"
+
+  # 盘中快变量（每次运行实时拉）
+  - id: day_change_pct
+    scope: per_target
+    source: finnhub_quote
+    field: day_change_pct
+    trigger: "value < -0.02"
+    weight: 2
+    description: "当日跌幅 > 2%"
+    only_modes: [intraday]
+
+  - id: from_session_high
+    scope: per_target
+    source: finnhub_quote
+    field: from_session_high
+    trigger: "value < -0.015"
+    weight: 1
+    description: "相对当日最高跌幅 > 1.5%"
+    only_modes: [intraday]
+
+  # 慢变量（基于昨日收盘，每日计算一次，缓存 24h）
+  - id: rsi_14
+    scope: per_target
+    source: finnhub_candles
+    indicator: rsi_14
+    trigger: "value < 30"
+    weight: 1
+    cache_hours: 24
+    description: "RSI-14 超卖 (< 30)"
+
+  - id: ma50_deviation
+    scope: per_target
+    source: finnhub_candles
+    indicator: ma50_deviation
+    trigger: "value < -0.03"
+    weight: 1
+    cache_hours: 24
+    description: "跌破 50 日均线 > 3%"
+
+  - id: mtd_drawdown
+    scope: per_target
+    source: finnhub_candles
+    indicator: mtd_drawdown
+    trigger: "value < -0.03"
+    weight: 1
+    cache_hours: 24
+    description: "本月最高回撤 > 3%"
+
+  - id: from_52w_high
+    scope: per_target
+    source: finnhub_candles
+    indicator: from_52w_high
+    trigger: "value < -0.10"
+    weight: 1
+    cache_hours: 24
+    description: "距 52 周高点 > 10%"
+
+# ─────────────────────────────────────────
+# 阈值（按运行模式区分）
+# ─────────────────────────────────────────
+thresholds:
+  intraday:
+    alert: 3                       # 盘中单级阈值：>= 3 分发信号
+  daily_final:
+    watch: 3                       # 收盘后：3 分 = 关注
+    strong_buy: 4                  # 收盘后：>= 4 分 = 强买点
+
+# ─────────────────────────────────────────
+# 冷却策略
+# ─────────────────────────────────────────
+cooldown:
+  intraday:
+    same_score_hours: 4            # 同分数 4 小时内不重推
+    score_upgrade_allowed: true    # 分数升高可立即重推
+    cross_session_reset: true      # 跨交易日自动重置
+  daily_final:
+    same_level_days: 3             # 同级别 3 天内不重推
+
+# ─────────────────────────────────────────
+# 其他配置
+# ─────────────────────────────────────────
+market:
+  calendar: NYSE
+  post_close_buffer_hours: 1       # 收盘后额外监测 1 小时
+
+data_health:
+  warn_on_all_sources_fail: true   # 所有数据源都失败时发警告通知

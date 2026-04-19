@@ -1,0 +1,11 @@
+{
+  "last_run": null,
+  "targets": {},
+  "cached_indicators": {},
+  "data_health": {
+    "finnhub": null,
+    "yfinance": null,
+    "fred": null,
+    "cnn_fgi": null
+  }
+}

@@ -1,0 +1,10 @@
+finnhub-python>=2.4.20
+yfinance>=0.2.40
+fredapi>=0.5.2
+requests>=2.31.0
+pandas>=2.0.0
+numpy>=1.24.0
+PyYAML>=6.0
+pandas-market-calendars>=4.4.0
+pytz>=2024.1
+asteval>=0.9.31
