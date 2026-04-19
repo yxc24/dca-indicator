@@ -5,8 +5,10 @@
 # 监测标的
 # ─────────────────────────────────────────
 targets:
-  - ticker: SPY
+  - ticker: VOO
     name: "标普 500 ETF"
+  - ticker: QQQ
+    name: "纳斯达克 100 ETF"
   # 如需添加，格式参考上面。例如：
   # - ticker: QQQ
   #   name: "纳斯达克 100 ETF"
