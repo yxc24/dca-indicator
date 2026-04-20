@@ -40,6 +40,8 @@ def run() -> int:
     cfg = load_config()
     state = load_state(cfg.state_path)
 
+    # 读取强制报告标记（默认为 false）
+    force_report = os.environ.get("FORCE_REPORT", "false").lower() == "true"
     # Auto-promote to daily_final if we're at the post-close final window
     if cfg.run_mode == "intraday" and market_hours.is_post_close_final_run():
         logger.info("Post-close final window detected → switching to daily_final mode")
@@ -108,10 +110,17 @@ def run() -> int:
             f"level={result.level} mode={result.run_mode}"
         )
 
-        if not result.has_signal():
+        # 仅当未触发信号且未开启强制报告时，才跳过
+        if not result.has_signal() and not force_report:
             continue
 
         allow, reason = cooldown_engine.should_notify(state, result, cfg)
+        
+        # 若为强制报告模式，直接覆盖 allow 结果并重写原因
+        if force_report:
+            allow = True
+            reason = "manual force report (bypassing thresholds and cooldown)"
+
         if not allow:
             logger.info(f"[{result.target}] suppressed by cooldown: {reason}")
             continue
