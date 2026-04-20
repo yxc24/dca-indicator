@@ -2,13 +2,18 @@ name: Hourly Stock Alert
 
 on:
   schedule:
-    # Trigger at :05 past the hour, Eastern Time, Mon-Fri
-    # Covers 10:05, 11:05, 12:05, 13:05, 14:05, 15:05, 16:05, 17:05 ET
-    # = 8 runs per trading day (open+30min → close+1hr)
-    # GitHub Actions auto-handles DST when timezone is specified
     - cron: '5 10-17 * * 1-5'
       timezone: 'America/New_York'
-  workflow_dispatch:        # allow manual trigger for testing
+  workflow_dispatch:
+    inputs:
+      run_mode:
+        description: '手动触发模式 (非交易时段强制执行请选 daily_final)'
+        required: true
+        type: choice
+        default: 'daily_final'
+        options:
+          - daily_final
+          - intraday
 
 permissions:
   contents: write           # need to commit state.json
@@ -38,7 +43,7 @@ jobs:
           FEISHU_SIGN_SECRET: ${{ secrets.FEISHU_SIGN_SECRET }}
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
-          RUN_MODE: intraday
+          RUN_MODE: ${{ inputs.run_mode || 'intraday' }}
           LOG_LEVEL: INFO
         run: python -m src.main
 
