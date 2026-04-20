@@ -7,13 +7,18 @@ on:
   workflow_dispatch:
     inputs:
       run_mode:
-        description: '手动触发模式 (非交易时段强制执行请选 daily_final)'
+        description: '运行模式'
         required: true
         type: choice
         default: 'daily_final'
         options:
           - daily_final
           - intraday
+      force_report:
+        description: '是否强制发送报告（无视阈值和冷却）'
+        required: true
+        type: boolean
+        default: true
 
 permissions:
   contents: write           # need to commit state.json
@@ -43,6 +48,8 @@ jobs:
           FEISHU_SIGN_SECRET: ${{ secrets.FEISHU_SIGN_SECRET }}
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          # 定时任务执行时 inputs 为空，FORCE_REPORT 默认为 false
+          FORCE_REPORT: ${{ inputs.force_report || 'false' }}
           RUN_MODE: ${{ inputs.run_mode || 'intraday' }}
           LOG_LEVEL: INFO
         run: python -m src.main
