@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-06-04T22:40:34.311389+00:00",
+  "last_run": "2026-06-05T16:35:13.636401+00:00",
   "targets": {
     "VOO": {
       "last_daily": {
@@ -19,6 +19,17 @@
         "max_score": 7,
         "level": "none",
         "triggered_ids": []
+      },
+      "last_intraday": {
+        "ts": "2026-06-05T16:35:13.636356+00:00",
+        "trading_date": "2026-06-05",
+        "score": 3,
+        "max_score": 10,
+        "level": "alert",
+        "triggered_ids": [
+          "day_change_pct",
+          "from_session_high"
+        ]
       }
     }
   },
