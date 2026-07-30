@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-07-30T19:44:49.316617+00:00",
+  "last_run": "2026-07-30T21:19:16.905999+00:00",
   "targets": {
     "VOO": {
       "last_daily": {
@@ -24,12 +24,16 @@
     },
     "QQQ": {
       "last_daily": {
-        "ts": "2026-07-24T01:48:43.664797+00:00",
-        "trading_date": "2026-07-23",
-        "score": 0,
+        "ts": "2026-07-30T21:19:16.905896+00:00",
+        "trading_date": "2026-07-30",
+        "score": 3,
         "max_score": 7,
-        "level": "none",
-        "triggered_ids": []
+        "level": "watch",
+        "triggered_ids": [
+          "ma50_deviation",
+          "mtd_drawdown",
+          "from_52w_high"
+        ]
       },
       "last_intraday": {
         "ts": "2026-07-30T19:44:49.316562+00:00",
