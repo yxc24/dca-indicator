@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-08-17T21:34:05.510972+00:00",
+  "last_run": "2026-08-18T14:43:54.142757+00:00",
   "targets": {
     "VOO": {
       "last_daily": {
@@ -54,16 +54,18 @@
     "VOO": {
       "rsi_14": 65.80520186136297,
       "ma50_deviation": 0.036311015405779086,
-      "mtd_drawdown": -0.0018742944717661078,
-      "from_52w_high": -0.003880608662921239,
-      "_candle_cached_at": "2026-08-17T14:37:05.399195+00:00"
+      "mtd_drawdown": NaN,
+      "from_52w_high": NaN,
+      "_candle_cached_at": "2026-08-18T14:43:53.921517+00:00",
+      "ma50_deviation_error": "invalid MA value"
     },
     "QQQ": {
       "rsi_14": 59.57112912488173,
       "ma50_deviation": 0.025415247617876762,
-      "mtd_drawdown": -0.0013659895774928538,
-      "from_52w_high": -0.023482290144320645,
-      "_candle_cached_at": "2026-08-17T14:37:05.589869+00:00"
+      "mtd_drawdown": NaN,
+      "from_52w_high": NaN,
+      "_candle_cached_at": "2026-08-18T14:43:54.140386+00:00",
+      "ma50_deviation_error": "invalid MA value"
     }
   },
   "data_health": {
