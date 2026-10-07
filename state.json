@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-10-06T23:44:43.303123+00:00",
+  "last_run": "2026-10-07T19:53:28.922763+00:00",
   "targets": {
     "VOO": {
       "last_daily": {
@@ -52,19 +52,19 @@
   },
   "cached_indicators": {
     "VOO": {
-      "rsi_14": 54.02866890774844,
-      "ma50_deviation": 0.007590859952677888,
+      "rsi_14": 61.37176594870169,
+      "ma50_deviation": 0.017892001017477295,
       "mtd_drawdown": 0.0,
-      "from_52w_high": -0.012353657142243716,
-      "_candle_cached_at": "2026-10-05T21:26:54.494312+00:00",
+      "from_52w_high": -0.0031594340593974622,
+      "_candle_cached_at": "2026-10-07T19:53:28.661573+00:00",
       "ma50_deviation_error": "invalid MA value"
     },
     "QQQ": {
-      "rsi_14": 65.40415275344239,
-      "ma50_deviation": 0.04570625082893188,
+      "rsi_14": 69.93257052527156,
+      "ma50_deviation": 0.05536589999894481,
       "mtd_drawdown": 0.0,
-      "from_52w_high": -0.006573489916952096,
-      "_candle_cached_at": "2026-10-05T21:26:54.616482+00:00",
+      "from_52w_high": -0.0041947569258814,
+      "_candle_cached_at": "2026-10-07T19:53:28.921392+00:00",
       "ma50_deviation_error": "invalid MA value"
     }
   },
