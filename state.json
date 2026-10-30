@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-10-29T23:54:03.851940+00:00",
+  "last_run": "2026-10-30T19:11:21.929248+00:00",
   "targets": {
     "VOO": {
       "last_daily": {
@@ -11,14 +11,14 @@
         "triggered_ids": []
       },
       "last_intraday": {
-        "ts": "2026-06-05T19:04:03.460183+00:00",
-        "trading_date": "2026-06-05",
+        "ts": "2026-10-30T19:11:21.412632+00:00",
+        "trading_date": "2026-10-30",
         "score": 3,
         "max_score": 10,
         "level": "alert",
         "triggered_ids": [
-          "day_change_pct",
-          "from_session_high"
+          "fgi",
+          "day_change_pct"
         ]
       }
     },
@@ -36,14 +36,15 @@
         ]
       },
       "last_intraday": {
-        "ts": "2026-10-23T18:14:30.991003+00:00",
-        "trading_date": "2026-10-23",
-        "score": 3,
+        "ts": "2026-10-30T19:11:21.929202+00:00",
+        "trading_date": "2026-10-30",
+        "score": 5,
         "max_score": 10,
         "level": "alert",
         "triggered_ids": [
           "fgi",
-          "ma50_deviation",
+          "day_change_pct",
+          "from_session_high",
           "mtd_drawdown"
         ]
       }
