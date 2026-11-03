@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-02T23:03:50.156983+00:00",
+  "last_run": "2026-11-03T20:54:13.666911+00:00",
   "targets": {
     "VOO": {
       "last_daily": {
@@ -36,35 +36,34 @@
         ]
       },
       "last_intraday": {
-        "ts": "2026-10-30T19:11:21.929202+00:00",
-        "trading_date": "2026-10-30",
-        "score": 5,
+        "ts": "2026-11-03T20:54:13.666866+00:00",
+        "trading_date": "2026-11-03",
+        "score": 3,
         "max_score": 10,
         "level": "alert",
         "triggered_ids": [
           "fgi",
-          "day_change_pct",
-          "from_session_high",
-          "mtd_drawdown"
+          "ma50_deviation",
+          "from_52w_high"
         ]
       }
     }
   },
   "cached_indicators": {
     "VOO": {
-      "rsi_14": 53.173864465403256,
-      "ma50_deviation": 0.00578624202920154,
-      "mtd_drawdown": -0.008796408385354256,
-      "from_52w_high": -0.01192805077249866,
-      "_candle_cached_at": "2026-10-29T19:31:41.866288+00:00",
+      "rsi_14": 37.962258941150196,
+      "ma50_deviation": -0.020033095036006247,
+      "mtd_drawdown": 0.0,
+      "from_52w_high": -0.03778858475092028,
+      "_candle_cached_at": "2026-11-03T20:54:12.619193+00:00",
       "ma50_deviation_error": "invalid MA value"
     },
     "QQQ": {
-      "rsi_14": 49.59430419284739,
-      "ma50_deviation": 0.0002558308455711405,
-      "mtd_drawdown": -0.04482266934773786,
-      "from_52w_high": -0.048829406070936346,
-      "_candle_cached_at": "2026-10-29T19:31:42.048847+00:00",
+      "rsi_14": 32.08211126757246,
+      "ma50_deviation": -0.05972740557230873,
+      "mtd_drawdown": 0.0,
+      "from_52w_high": -0.107188684773406,
+      "_candle_cached_at": "2026-11-03T20:54:12.894052+00:00",
       "ma50_deviation_error": "invalid MA value"
     }
   },
