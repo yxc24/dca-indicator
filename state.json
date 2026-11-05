@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-05T02:15:29.679339+00:00",
+  "last_run": "2026-11-05T21:26:22.147291+00:00",
   "targets": {
     "VOO": {
       "last_daily": {
@@ -11,14 +11,16 @@
         "triggered_ids": []
       },
       "last_intraday": {
-        "ts": "2026-10-30T19:11:21.412632+00:00",
-        "trading_date": "2026-10-30",
-        "score": 3,
+        "ts": "2026-11-05T21:26:21.649681+00:00",
+        "trading_date": "2026-11-05",
+        "score": 6,
         "max_score": 10,
         "level": "alert",
         "triggered_ids": [
+          "vix",
           "fgi",
-          "day_change_pct"
+          "day_change_pct",
+          "from_session_high"
         ]
       }
     },
@@ -36,34 +38,36 @@
         ]
       },
       "last_intraday": {
-        "ts": "2026-11-03T20:54:13.666866+00:00",
-        "trading_date": "2026-11-03",
-        "score": 3,
+        "ts": "2026-11-05T21:26:22.147246+00:00",
+        "trading_date": "2026-11-05",
+        "score": 7,
         "max_score": 10,
         "level": "alert",
         "triggered_ids": [
+          "vix",
           "fgi",
-          "ma50_deviation",
-          "from_52w_high"
+          "day_change_pct",
+          "from_session_high",
+          "ma50_deviation"
         ]
       }
     }
   },
   "cached_indicators": {
     "VOO": {
-      "rsi_14": 40.31747868042125,
-      "ma50_deviation": -0.0166551066036596,
+      "rsi_14": 50.553218113015625,
+      "ma50_deviation": -0.0007397860882208661,
       "mtd_drawdown": 0.0,
-      "from_52w_high": -0.034698726032187134,
-      "_candle_cached_at": "2026-11-04T21:14:42.957743+00:00",
+      "from_52w_high": -0.01905429866867288,
+      "_candle_cached_at": "2026-11-05T21:26:20.749117+00:00",
       "ma50_deviation_error": "invalid MA value"
     },
     "QQQ": {
-      "rsi_14": 34.603246811822615,
-      "ma50_deviation": -0.053393022787102395,
+      "rsi_14": 38.51588824818567,
+      "ma50_deviation": -0.04368358380001464,
       "mtd_drawdown": 0.0,
-      "from_52w_high": -0.10169619267542908,
-      "_candle_cached_at": "2026-11-04T21:14:43.254639+00:00",
+      "from_52w_high": -0.09295280196385255,
+      "_candle_cached_at": "2026-11-05T21:26:21.002351+00:00",
       "ma50_deviation_error": "invalid MA value"
     }
   },
